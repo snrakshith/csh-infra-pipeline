@@ -1,0 +1,47 @@
+test-vpc 
+12.0.0.0/16
+
+Internet gateway
+igw-test
+===
+
+Subnet
+test-public-subnet-1a
+12.0.1.0/24
+
+test-public-subnet-1b
+12.0.3.0/24
+
+===
+Route Table
+====
+rt-test-public
+
+===
+Target group
+tg-ec2-apache2
+
+===
+Loadbalancer
+alb-ec2-instances-with-asg
+
+===
+Security Group
+alb-sg-for-http-request
+
+===
+Create Launch Template
+===
+Use Launch Template to create AutoScaling
+
+#!/bin/bash
+yes| sudo apt update
+yes| sudo apt install apache2
+echo"<h1>Server details</h1>
+<p><strong>Hostname</strong>${hostname}</p>
+<p><strong>IP address</strong>${hostname -l|cut -d" " -f1}</p>" >
+/var/www/html/index.html
+sudo systemctl restart apache2
+
+
+
