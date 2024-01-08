@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         name: Checkout source code
 
       - uses: actions/cache@v3
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         name: Checkout source code
 
       - uses: hashicorp/setup-terraform@v3
@@ -52,7 +52,7 @@ jobs:
     name: Validate docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         name: Checkout source code
 
       - name: Render terraform docs inside the README.md and fail if changes are presented
